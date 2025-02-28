@@ -1,0 +1,1 @@
+val final_data = almaren.builder.sourceSql("SELECT monotonically_increasing_id() as __ID__, 'https://api.open-meteo.com/v1/forecast?latitude=40.7128&longitude=-74.0060&current_weather=true' as __URL__").http(method = "GET").alias("table").sql("select __BODY__ from table").deserializer("Json","__BODY__",None).batch
